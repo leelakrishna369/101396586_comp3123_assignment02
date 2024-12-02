@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import apiClient from './apiClient';
-import './EmployeeList.css'; // Custom CSS for EmployeeList
+import './Employeelist.css'; // Custom CSS for EmployeeList
 
 export const EmployeeList = () => {
     const [employeelist, setEmployeeList] = useState([]);

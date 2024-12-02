@@ -8,7 +8,6 @@ import { ViewById } from './employee_components/ViewById';
 import { AddEmployee } from './employee_components/AddEmployee';
 import { UpdateEmployee } from './employee_components/UpdateEmployee';
 import ProtectedRoute from './ProtectedRoute';
-import 'bulma/css/bulma.min.css'; 
 
 function App() {
   return (
@@ -55,7 +54,7 @@ function App() {
           />
 
           {/* Fallback Route */}
-          <Route path="*" element={<h1 className="has-text-centered">404: Page Not Found</h1>} />
+          <Route path="*" element={<h1 className="not-found">404: Page Not Found</h1>} />
         </Routes>
       </Router>
     </AuthProvider>

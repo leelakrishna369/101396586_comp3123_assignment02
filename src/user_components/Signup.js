@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import apiClient from '../apiClient';
-import './Signup.css'; // Import custom styles
+import './Signup.css'; 
 
 export const Signup = () => {
     const [username, setUsername] = useState("");

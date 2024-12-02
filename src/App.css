@@ -1,132 +1,16 @@
-/* General Styles */
+/* General Reset */
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', Arial, sans-serif;
-  background-color: #f9f9f9; /* Light background for a clean look */
-  color: #333; /* Dark text for readability */
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  text-decoration: none;
-  color: #007bff; /* Primary link color */
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #0056b3; /* Darker shade for hover state */
-}
-
-/* Header Styles */
-h1, h2, h3, h4, h5, h6 {
-  color: #2c3e50; /* Darker gray-blue for titles */
-  font-weight: 600;
-}
-
-/* Buttons */
-button {
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  border: none;
-  transition: all 0.3s ease;
-}
-
-button.is-primary {
-  background-color: #007bff;
-  color: white;
-}
-
-button.is-primary:hover {
-  background-color: #0056b3;
-}
-
-button.is-light {
-  background-color: #f5f5f5;
-  color: #333;
-  border: 1px solid #ddd;
-}
-
-button.is-light:hover {
-  background-color: #e9ecef;
-}
-
-/* Inputs and Forms */
-input, select {
-  width: 100%;
-  padding: 0.6rem;
-  margin-top: 0.4rem;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-input:focus, select:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-label {
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-/* Table Styles */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0;
-}
-
-table th, table td {
-  padding: 0.8rem;
-  text-align: left;
-  border: 1px solid #ddd;
-}
-
-table th {
-  background-color: #f5f5f5;
-  color: #333;
-  font-weight: bold;
-}
-
-table tr:nth-child(even) {
+  font-family: Arial, sans-serif;
   background-color: #f9f9f9;
-}
-
-table tr:hover {
-  background-color: #f1f1f1;
-}
-
-/* Notifications */
-.notification {
-  padding: 1rem;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-}
-
-.notification.is-danger {
-  background-color: #f8d7da;
-  color: #721c24;
-}
-
-.notification.is-info {
-  background-color: #d1ecf1;
-  color: #0c5460;
-}
-
-/* Centered 404 Page */
-.has-text-centered {
-  text-align: center;
-  font-size: 1.5rem;
   color: #333;
-  margin-top: 2rem;
+}
+
+/* Not Found Page Styling */
+.not-found {
+  text-align: center;
+  margin-top: 20%;
+  font-size: 2rem;
+  color: #d9534f;
 }

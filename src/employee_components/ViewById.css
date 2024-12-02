@@ -1,0 +1,62 @@
+/* Container Styling */
+.view-employee-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    padding: 20px;
+  }
+  
+  /* Employee Details Box */
+  .employee-details-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  /* Title Styling */
+  .employee-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Employee Content */
+  .employee-content p {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .employee-content strong {
+    color: #333;
+  }
+  
+  /* Messages */
+  .loading-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #5bc0de;
+    font-weight: bold;
+  }
+  
+  .error-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #d9534f;
+    font-weight: bold;
+  }
+  
+  .no-data-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #6c757d;
+    font-weight: bold;
+  }
+  

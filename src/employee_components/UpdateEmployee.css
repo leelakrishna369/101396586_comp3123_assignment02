@@ -1,0 +1,113 @@
+/* Container Styling */
+.update-employee-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    padding: 20px;
+  }
+  
+  /* Update Employee Box */
+  .update-employee-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  /* Title Styling */
+  .update-employee-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Form Styling */
+  .update-employee-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .form-field {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .form-input, .form-select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-input:focus, .form-select:focus {
+    border-color: #4a90e2;
+    outline: none;
+  }
+  
+  /* Buttons */
+  .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .primary-button {
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .primary-button:hover {
+    background-color: #357ab8;
+  }
+  
+  .secondary-button {
+    background-color: #e7e7e7;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .secondary-button:hover {
+    background-color: #d6d6d6;
+  }
+  
+  /* Messages */
+  .loading-message, .error-message, .no-data-message {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  .loading-message {
+    color: #5bc0de;
+  }
+  
+  .error-message {
+    color: #d9534f;
+  }
+  
+  .no-data-message {
+    color: #6c757d;
+  }
+  
