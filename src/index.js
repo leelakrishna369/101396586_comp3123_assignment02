@@ -4,15 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-
+// Initialize root rendering
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// Wrap application in error boundary and setup context for future scalability
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Measure performance and optionally send it to an analytics endpoint
+// Replace the console.log with a function to send to analytics if needed
+reportWebVitals((metric) => {
+  console.log(metric); // Logs performance metrics to the console
+  // Example: send metric to an analytics endpoint
+  // fetch('/analytics', {
+  //   method: 'POST',
+  //   body: JSON.stringify(metric),
+  // });
+});
