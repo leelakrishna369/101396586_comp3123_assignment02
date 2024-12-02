@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import apiClient from '../apiClient';
 import { useNavigate } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.css';
+import './AddEmployee.css'; // Import custom CSS
 
 export const AddEmployee = () => {
   const [firstname, setFirstname] = useState('');
@@ -32,11 +32,9 @@ export const AddEmployee = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await apiClient.post('/api/v1/emp/employees', employeeData, {
+      await apiClient.post('/api/v1/emp/employees', employeeData, {
         headers: { Authorization: `Bearer ${token}` },
       });
-
-      console.log('Employee added:', response.data);
 
       setFirstname('');
       setLastname('');
@@ -56,49 +54,49 @@ export const AddEmployee = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <h2 className="text-center mb-4">Add Employee</h2>
+    <div className="add-employee-container">
+      <h2 className="add-employee-title">Add Employee</h2>
 
-      {success && <p className="alert alert-success text-center">{success}</p>}
+      {success && <p className="success-message">{success}</p>}
 
-      <form onSubmit={handleSubmit} className="border p-4 rounded shadow-sm bg-light">
-        <div className="mb-3">
+      <form onSubmit={handleSubmit} className="add-employee-form">
+        <div className="form-group">
           <label htmlFor="firstname" className="form-label">First Name:</label>
           <input
             type="text"
             id="firstname"
-            className="form-control"
+            className="form-input"
             value={firstname}
             onChange={(e) => setFirstname(e.target.value)}
             required
           />
         </div>
 
-        <div className="mb-3">
+        <div className="form-group">
           <label htmlFor="lastname" className="form-label">Last Name:</label>
           <input
             type="text"
             id="lastname"
-            className="form-control"
+            className="form-input"
             value={lastname}
             onChange={(e) => setLastname(e.target.value)}
             required
           />
         </div>
 
-        <div className="mb-3">
+        <div className="form-group">
           <label htmlFor="email" className="form-label">Email:</label>
           <input
             type="email"
             id="email"
-            className="form-control"
+            className="form-input"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
 
-        <div className="mb-3">
+        <div className="form-group">
           <label htmlFor="position" className="form-label">Position:</label>
           <select
             id="position"
@@ -115,47 +113,47 @@ export const AddEmployee = () => {
           </select>
         </div>
 
-        <div className="mb-3">
+        <div className="form-group">
           <label htmlFor="salary" className="form-label">Salary:</label>
           <input
             type="number"
             id="salary"
-            className="form-control"
+            className="form-input"
             value={salary}
             onChange={(e) => setSalary(e.target.value)}
             required
           />
         </div>
 
-        <div className="mb-3">
+        <div className="form-group">
           <label htmlFor="dateOfJoining" className="form-label">Date of Joining:</label>
           <input
             type="date"
             id="dateOfJoining"
-            className="form-control"
+            className="form-input"
             value={dateOfJoining}
             onChange={(e) => setDateOfJoining(e.target.value)}
             required
           />
         </div>
 
-        <div className="mb-3">
+        <div className="form-group">
           <label htmlFor="department" className="form-label">Department:</label>
           <input
             type="text"
             id="department"
-            className="form-control"
+            className="form-input"
             value={department}
             onChange={(e) => setDepartment(e.target.value)}
             required
           />
         </div>
 
-        <div className="d-flex justify-content-between">
-          <button type="submit" className="btn btn-primary">
+        <div className="form-buttons">
+          <button type="submit" className="primary-button">
             Add Employee
           </button>
-          <button type="button" onClick={handleCancel} className="btn btn-secondary">
+          <button type="button" onClick={handleCancel} className="secondary-button">
             Cancel
           </button>
         </div>

@@ -1,7 +1,7 @@
-import 'bulma/css/bulma.min.css';
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import apiClient from '../apiClient';
+import './UpdateEmployee.css'; // Custom CSS
 
 export const UpdateEmployee = () => {
   const { id } = useParams();
@@ -54,138 +54,125 @@ export const UpdateEmployee = () => {
   };
 
   if (loading) {
-    return <p>Loading employee details...</p>;
+    return <p className="loading-message">Loading employee details...</p>;
   }
 
   if (error) {
-    return <p className="notification is-danger">{error}</p>;
+    return <p className="error-message">{error}</p>;
   }
 
   if (!updateEmployee) {
-    return <p>No employee data available.</p>;
+    return <p className="no-data-message">No employee data available.</p>;
   }
 
   return (
-    <div className="container is-max-desktop mt-5">
-      <div className="box">
-        <h2 className="title is-4 has-text-centered">Update Employee</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="field">
-            <label htmlFor="first_name" className="label">
+    <div className="update-employee-container">
+      <div className="update-employee-box">
+        <h2 className="update-employee-title">Update Employee</h2>
+        <form onSubmit={handleSubmit} className="update-employee-form">
+          <div className="form-field">
+            <label htmlFor="first_name" className="form-label">
               First Name:
             </label>
-            <div className="control">
-              <input
-                id="first_name"
-                type="text"
-                name="first_name"
-                value={updateEmployee.first_name || ''}
-                onChange={handleChange}
-                className="input"
-                required
-              />
-            </div>
+            <input
+              id="first_name"
+              type="text"
+              name="first_name"
+              value={updateEmployee.first_name || ''}
+              onChange={handleChange}
+              className="form-input"
+              required
+            />
           </div>
 
-          <div className="field">
-            <label htmlFor="last_name" className="label">
+          <div className="form-field">
+            <label htmlFor="last_name" className="form-label">
               Last Name:
             </label>
-            <div className="control">
-              <input
-                id="last_name"
-                type="text"
-                name="last_name"
-                value={updateEmployee.last_name || ''}
-                onChange={handleChange}
-                className="input"
-                required
-              />
-            </div>
+            <input
+              id="last_name"
+              type="text"
+              name="last_name"
+              value={updateEmployee.last_name || ''}
+              onChange={handleChange}
+              className="form-input"
+              required
+            />
           </div>
 
-          <div className="field">
-            <label htmlFor="email" className="label">
+          <div className="form-field">
+            <label htmlFor="email" className="form-label">
               Email:
             </label>
-            <div className="control">
-              <input
-                id="email"
-                type="email"
-                name="email"
-                value={updateEmployee.email || ''}
-                onChange={handleChange}
-                className="input"
-                required
-              />
-            </div>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              value={updateEmployee.email || ''}
+              onChange={handleChange}
+              className="form-input"
+              required
+            />
           </div>
 
-          <div className="field">
-            <label htmlFor="position" className="label">
+          <div className="form-field">
+            <label htmlFor="position" className="form-label">
               Position:
             </label>
-            <div className="control">
-              <div className="select is-fullwidth">
-                <select
-                  id="position"
-                  name="position"
-                  value={updateEmployee.position || ''}
-                  onChange={handleChange}
-                  required
-                >
-                  {positions.map((pos) => (
-                    <option key={pos} value={pos}>
-                      {pos}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
+            <select
+              id="position"
+              name="position"
+              value={updateEmployee.position || ''}
+              onChange={handleChange}
+              className="form-select"
+              required
+            >
+              {positions.map((pos) => (
+                <option key={pos} value={pos}>
+                  {pos}
+                </option>
+              ))}
+            </select>
           </div>
 
-          <div className="field">
-            <label htmlFor="salary" className="label">
+          <div className="form-field">
+            <label htmlFor="salary" className="form-label">
               Salary:
             </label>
-            <div className="control">
-              <input
-                id="salary"
-                type="number"
-                name="salary"
-                value={updateEmployee.salary || ''}
-                onChange={handleChange}
-                className="input"
-                required
-              />
-            </div>
+            <input
+              id="salary"
+              type="number"
+              name="salary"
+              value={updateEmployee.salary || ''}
+              onChange={handleChange}
+              className="form-input"
+              required
+            />
           </div>
 
-          <div className="field">
-            <label htmlFor="department" className="label">
+          <div className="form-field">
+            <label htmlFor="department" className="form-label">
               Department:
             </label>
-            <div className="control">
-              <input
-                id="department"
-                type="text"
-                name="department"
-                value={updateEmployee.department || ''}
-                onChange={handleChange}
-                className="input"
-                required
-              />
-            </div>
+            <input
+              id="department"
+              type="text"
+              name="department"
+              value={updateEmployee.department || ''}
+              onChange={handleChange}
+              className="form-input"
+              required
+            />
           </div>
 
-          <div className="buttons is-centered">
-            <button type="submit" className="button is-primary">
+          <div className="form-buttons">
+            <button type="submit" className="primary-button">
               Update Employee
             </button>
             <button
               type="button"
               onClick={() => navigate('/employeelist')}
-              className="button is-light"
+              className="secondary-button"
             >
               Cancel
             </button>

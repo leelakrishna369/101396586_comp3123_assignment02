@@ -1,7 +1,7 @@
-import 'bulma/css/bulma.min.css'; 
 import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import apiClient from './apiClient';
+import './EmployeeList.css'; // Custom CSS for EmployeeList
 
 export const EmployeeList = () => {
     const [employeelist, setEmployeeList] = useState([]);
@@ -76,18 +76,10 @@ export const EmployeeList = () => {
         }
     };
 
-    const debounce = (func, delay) => {
-        let timer;
-        return (...args) => {
-            clearTimeout(timer);
-            timer = setTimeout(() => func(...args), delay);
-        };
-    };
-
-    const handleInputChange = debounce((e) => {
+    const handleInputChange = (e) => {
         const { name, value } = e.target;
         setSearchParams((prev) => ({ ...prev, [name]: value }));
-    }, 300);
+    };
 
     const handleAddButton = () => {
         navigate('/employees/AddEmployee');
@@ -107,75 +99,62 @@ export const EmployeeList = () => {
     };
 
     return (
-        <div className="container mt-4">
-            <div className="columns">
-                <div className="column is-half">
-                    <button className="button is-primary" onClick={handleAddButton}>
-                        Add Employee
-                    </button>
-                </div>
-                <div className="column is-half has-text-right">
-                    <button className="button is-light" onClick={handleLogout}>
-                        Logout
-                    </button>
-                </div>
+        <div className="employee-list-container">
+            <div className="header">
+                <button className="primary-button" onClick={handleAddButton}>
+                    Add Employee
+                </button>
+                <button className="secondary-button" onClick={handleLogout}>
+                    Logout
+                </button>
             </div>
 
-            <form onSubmit={handleSearch} className="box mt-4">
-                <div className="columns">
-                    <div className="column">
-                        <label className="label">Department</label>
-                        <input
-                            type="text"
-                            name="department"
-                            defaultValue={searchParams.department}
-                            onChange={handleInputChange}
-                            className="input"
-                        />
-                    </div>
-                    <div className="column">
-                        <label className="label">Position</label>
-                        <div className="select is-fullwidth">
-                            <select
-                                name="position"
-                                defaultValue={searchParams.position}
-                                onChange={handleInputChange}
-                            >
-                                <option value="">Select Position</option>
-                                {positions.map((pos) => (
-                                    <option key={pos} value={pos}>
-                                        {pos}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
-                    </div>
-                    <div className="column is-narrow">
-                        <button type="submit" className="button is-primary is-fullwidth">
-                            Search
-                        </button>
-                        <button
-                            type="button"
-                            onClick={handleRefresh}
-                            className="button is-light is-fullwidth mt-2"
-                        >
-                            Reset
-                        </button>
-                    </div>
+            <form onSubmit={handleSearch} className="search-form">
+                <div className="form-group">
+                    <label>Department</label>
+                    <input
+                        type="text"
+                        name="department"
+                        value={searchParams.department}
+                        onChange={handleInputChange}
+                        className="form-input"
+                    />
                 </div>
+                <div className="form-group">
+                    <label>Position</label>
+                    <select
+                        name="position"
+                        value={searchParams.position}
+                        onChange={handleInputChange}
+                        className="form-select"
+                    >
+                        <option value="">Select Position</option>
+                        {positions.map((pos) => (
+                            <option key={pos} value={pos}>
+                                {pos}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                <button type="submit" className="primary-button">
+                    Search
+                </button>
+                <button type="button" onClick={handleRefresh} className="secondary-button">
+                    Reset
+                </button>
             </form>
 
-            {error && <p className="notification is-danger">{error}</p>}
-            {loading && <p className="notification is-info">Loading...</p>}
+            {error && <p className="error-message">{error}</p>}
+            {loading && <p className="loading-message">Loading...</p>}
 
-            <h2 className="title is-4">Employee Dashboard</h2>
+            <h2>Employee Dashboard</h2>
 
             {employeelist.length === 0 && !loading && (
-                <p className="has-text-centered">No employees found. Try refreshing or updating your search criteria.</p>
+                <p>No employees found. Try refreshing or updating your search criteria.</p>
             )}
 
             {employeelist.length > 0 && (
-                <table className="table is-fullwidth is-striped">
+                <table className="employee-table">
                     <thead>
                         <tr>
                             <th>First Name</th>
@@ -192,19 +171,19 @@ export const EmployeeList = () => {
                                 <td>{employee.email}</td>
                                 <td>
                                     <button
-                                        className="button is-small is-info"
+                                        className="info-button"
                                         onClick={() => handleView(employee._id)}
                                     >
                                         View
                                     </button>
                                     <button
-                                        className="button is-small is-warning mx-2"
+                                        className="update-button"
                                         onClick={() => handleUpdate(employee._id)}
                                     >
                                         Update
                                     </button>
                                     <button
-                                        className="button is-small is-danger"
+                                        className="delete-button"
                                         onClick={() => handleDelete(employee._id)}
                                     >
                                         Delete

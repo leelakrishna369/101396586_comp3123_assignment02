@@ -1,7 +1,7 @@
-import 'bulma/css/bulma.min.css';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import apiClient from '../apiClient';
+import './Login.css'; // Import custom styles
 
 export const Login = () => {
   const [email, setEmail] = useState('');
@@ -35,56 +35,48 @@ export const Login = () => {
   };
 
   return (
-    <div className="container is-max-desktop mt-5">
-      <div className="box">
-        <h2 className="title is-4 has-text-centered">Login</h2>
+    <div className="login-container">
+      <div className="login-box">
+        <h2 className="login-title">Login</h2>
         <form onSubmit={handleLogin}>
-          <div className="field">
-            <label htmlFor="email" className="label">
+          <div className="form-field">
+            <label htmlFor="email" className="form-label">
               Email
             </label>
-            <div className="control">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className="input"
-                placeholder="Enter email"
-                value={email}
-                onChange={handleInput}
-                required
-              />
-            </div>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="form-input"
+              placeholder="Enter email"
+              value={email}
+              onChange={handleInput}
+              required
+            />
           </div>
-          <div className="field">
-            <label htmlFor="password" className="label">
+          <div className="form-field">
+            <label htmlFor="password" className="form-label">
               Password
             </label>
-            <div className="control">
-              <input
-                type="password"
-                id="password"
-                name="password"
-                className="input"
-                placeholder="Enter password"
-                value={password}
-                onChange={handleInput}
-                required
-              />
-            </div>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              className="form-input"
+              placeholder="Enter password"
+              value={password}
+              onChange={handleInput}
+              required
+            />
           </div>
-          <div className="field">
-            <div className="control">
-              <button type="submit" className="button is-primary is-fullwidth">
-                Login
-              </button>
-            </div>
-          </div>
+          <button type="submit" className="login-button">
+            Login
+          </button>
         </form>
-        {message && <p className="has-text-danger has-text-centered mt-3">{message}</p>}
-        <p className="has-text-centered mt-3">
+        {message && <p className="error-message">{message}</p>}
+        <p className="redirect-text">
           Don't have an account?{' '}
-          <a href="/signup" className="has-text-primary">
+          <a href="/signup" className="signup-link">
             Sign up
           </a>
         </p>
